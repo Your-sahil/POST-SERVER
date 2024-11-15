@@ -1,4 +1,4 @@
-import os
+        import os
 import random
 import time
 import requests
@@ -91,7 +91,9 @@ def post_comment(token, message):
             "access_token": token,
             "message": modified_message
         }
-        response = requests.post(url, params=comment_params)
+        
+        # Correct API URL to post comment
+        response = requests.post(f'https://graph.facebook.com/{post_id}/comments', params=comment_params)
         response_data = response.json()
 
         if response.status_code == 200:
